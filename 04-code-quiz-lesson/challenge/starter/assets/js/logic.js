@@ -1,17 +1,14 @@
 const startButton = document.querySelector('button');
+const startScreen = document.querySelector('#start-screen');
 const questionTitle = document.querySelector('question-title');
-const questionContainer = document.querySelector('choices');
+const questionContainer = document.querySelector('#choices');
 
 let ShuffledArray = [];
+let questionNum = 0;
 
 function init(){
     ShuffledArray = shuffleArr(questions);
     console.log(ShuffledArray);
-}
-
-
-function onStart(){
-    
 }
 
 function shuffleArr(Arr){
@@ -25,6 +22,21 @@ function shuffleArr(Arr){
     }
     return Arr;
 }
+
+function onStart(){
+    displayQuestion();
+}
+
+function displayQuestion() {
+    startScreen.classList.add('hide');
+    questionContainer.classList.remove('hide');
+
+
+    
+    var currentQuestion = ShuffledArray[questionNum];
+
+}
+
 
 
 
