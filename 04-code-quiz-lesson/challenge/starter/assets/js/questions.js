@@ -29,4 +29,34 @@ const questions = [
         Answer2: 'This is Answer2',
         Answer3: 'This is Answer3',
     },
+    Question6 = {
+        Question: 'This is Question6',
+        Answer1: 'This is Answer1',
+        Answer2: 'This is Answer2',
+        Answer3: 'This is Answer3',
+    },
+    Question7 = {
+        Question: 'This is Question7',
+        Answer1: 'This is Answer1',
+        Answer2: 'This is Answer2',
+        Answer3: 'This is Answer3',
+    },
+    Question8 = {
+        Question: 'This is Question8',
+        Answer1: 'This is Answer1',
+        Answer2: 'This is Answer2',
+        Answer3: 'This is Answer3',
+    },
+    Question9 = {
+        Question: 'This is Question9',
+        Answer1: 'This is Answer1',
+        Answer2: 'This is Answer2',
+        Answer3: 'This is Answer3',
+    },
+    Question10 = {
+        Question: 'This is Question10',
+        Answer1: 'This is Answer1',
+        Answer2: 'This is Answer2',
+        Answer3: 'This is Answer3',
+    },
 ]
