@@ -35,6 +35,8 @@ function displayQuestion() {
     myQuestions.classList.remove('hide');
     var currentQuestion = ShuffledArray[questionNum];
 
+    console.log(currentQuestion);
+
     var answerIndex = 0;
     
     while(optionsNum > 0){
@@ -42,6 +44,24 @@ function displayQuestion() {
         var newButton = document.createElement('button');
         newLi.setAttribute('questionNum', answerIndex);
         newButton.setAttribute('buttonNum', answerIndex);
+
+        switchExpression = newLi.getAttribute('questionNum');
+        console.log(switchExpression);
+
+        switch(switchExpression){
+            case '0':
+                newLi.textContent = currentQuestion.Answer1;
+                console.log('this is question 1');
+                break;
+            case '1':
+                newLi.textContent = currentQuestion.Answer2;
+                console.log('this is question 2');
+                break;
+            case '2':
+                newLi.textContent = currentQuestion.Answer3;
+                console.log('this is question 3');
+        }
+
         answerIndex++;
         newButton.textContent = 'Confirm';
         newLi.appendChild(newButton);
@@ -51,6 +71,8 @@ function displayQuestion() {
     }
     optionsNum = 3;
     answerIndex = 0;
+    
+
 
 
 
