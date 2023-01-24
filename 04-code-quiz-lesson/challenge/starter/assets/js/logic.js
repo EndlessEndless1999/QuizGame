@@ -35,19 +35,31 @@ function displayQuestion() {
     myQuestions.classList.remove('hide');
     var currentQuestion = ShuffledArray[questionNum];
 
+    var answerIndex = 0;
+    
     while(optionsNum > 0){
         var newLi = document.createElement('li');
-        newLi.textContent = currentQuestion.Answer1;
+        var newButton = document.createElement('button');
+        newLi.setAttribute('questionNum', answerIndex);
+        newButton.setAttribute('buttonNum', answerIndex);
+        answerIndex++;
+        newButton.textContent = 'Confirm';
+        newLi.appendChild(newButton);
         questionContainer.appendChild(newLi);
+        newButton.addEventListener('click', onAnswerClick);
         optionsNum--;
     }
+    optionsNum = 3;
+    answerIndex = 0;
 
 
 
 
 }
 
-
+function onAnswerClick(){
+    console.log('Answer Chosen');
+}
 
 
 
