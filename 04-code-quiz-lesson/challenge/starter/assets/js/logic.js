@@ -82,6 +82,10 @@ function displayQuestion() {
 
 }
 
+function removeCurrentQuestions(){
+
+}
+
 function onAnswerClick(){
     event.preventDefault();
     var button = event.target.getAttribute('buttonNum');
@@ -91,6 +95,8 @@ function onAnswerClick(){
     }else{
         console.log('Incorrect!');
     }
+    questionNum += 1;
+    removeCurrentQuestions();
 }
 
 
