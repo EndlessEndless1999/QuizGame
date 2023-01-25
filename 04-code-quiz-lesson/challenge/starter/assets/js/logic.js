@@ -8,6 +8,8 @@ let ShuffledArray = [];
 let questionNum = 0;
 let optionsNum = 3;
 
+let currentQuestion;
+
 function init(){
     ShuffledArray = shuffleArr(questions);
     console.log(ShuffledArray);
@@ -33,7 +35,7 @@ function displayQuestion() {
     startScreen.classList.add('hide');
     questionContainer.classList.remove('hide');
     myQuestions.classList.remove('hide');
-    var currentQuestion = ShuffledArray[questionNum];
+    currentQuestion = ShuffledArray[questionNum];
 
     console.log(currentQuestion);
 
@@ -46,6 +48,7 @@ function displayQuestion() {
         newButton.setAttribute('buttonNum', answerIndex);
 
         switchExpression = newLi.getAttribute('questionNum');
+        buttonAttribute = newButton.getAttribute('buttonNum');
         console.log(switchExpression);
 
         switch(switchExpression){
@@ -80,7 +83,14 @@ function displayQuestion() {
 }
 
 function onAnswerClick(){
-    console.log('Answer Chosen');
+    event.preventDefault();
+    var button = event.target.getAttribute('buttonNum');
+    
+    if(button === currentQuestion.Correct){
+        console.log('Correct!');
+    }else{
+        console.log('Incorrect!');
+    }
 }
 
 
