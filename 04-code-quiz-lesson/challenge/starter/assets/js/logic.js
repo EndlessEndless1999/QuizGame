@@ -3,6 +3,13 @@ const startScreen = document.querySelector('#start-screen');
 const questionTitle = document.querySelector('#question-title');
 const questionContainer = document.querySelector('#choices');
 const myQuestions = document.querySelector('#questions');
+const timeDisplay = document.querySelector('#time');
+const endGameScreen = document.querySelector('#end-screen');
+const formSubmitter = document.querySelector('#submit');
+
+
+let time = 60;
+let timeUp = false;
 
 let ShuffledArray = [];
 let questionNum = 0;
@@ -29,13 +36,17 @@ function shuffleArr(Arr){
 
 function onStart(){
     displayQuestion();
+    timer();
 }
 
 function displayQuestion() {
     startScreen.classList.add('hide');
     questionContainer.classList.remove('hide');
     myQuestions.classList.remove('hide');
+
     currentQuestion = ShuffledArray[questionNum];
+
+    questionTitle.textContent = currentQuestion.Question;
 
     console.log(currentQuestion);
 
@@ -44,10 +55,12 @@ function displayQuestion() {
     while(optionsNum > 0){
         var newLi = document.createElement('li');
         var newButton = document.createElement('button');
+
         newLi.setAttribute('questionNum', answerIndex);
         newButton.setAttribute('buttonNum', answerIndex);
 
         switchExpression = newLi.getAttribute('questionNum');
+
         buttonAttribute = newButton.getAttribute('buttonNum');
         console.log(switchExpression);
 
@@ -83,7 +96,10 @@ function displayQuestion() {
 }
 
 function removeCurrentQuestions(){
-
+    while(questionContainer.lastElementChild){
+        questionContainer.removeChild(questionContainer.lastElementChild);
+    }
+    displayQuestion();
 }
 
 function onAnswerClick(){
@@ -92,14 +108,40 @@ function onAnswerClick(){
     
     if(button === currentQuestion.Correct){
         console.log('Correct!');
+        currentScore += 1;
     }else{
         console.log('Incorrect!');
+        time -= 10;
     }
     questionNum += 1;
     removeCurrentQuestions();
 }
 
 
+function timer() {
+    var timer = setInterval( function () { 
+        timeDisplay.innerHTML = time;
+        time --;
+
+        if (time <= 0){
+            endGame();
+        }
+
+
+    }, 1000);
+}
+
+function endGame() {
+    removeCurrentQuestions();
+
+    endGameScreen.classList.remove('hide');
+
+    formSubmitter.addEventListener('click', submitScore);
+}
+
+function submitScore() {
+    console.log('submit');
+}
 
 
 init();
