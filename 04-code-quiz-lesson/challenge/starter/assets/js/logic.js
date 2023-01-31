@@ -6,6 +6,10 @@ const myQuestions = document.querySelector('#questions');
 const timeDisplay = document.querySelector('#time');
 const endGameScreen = document.querySelector('#end-screen');
 const formSubmitter = document.querySelector('#submit');
+const initialsForm = document.querySelector('#initials');
+const finalScore = document.querySelector('#final-score');
+
+
 
 
 let time = 60;
@@ -16,6 +20,7 @@ let questionNum = 0;
 let optionsNum = 3;
 
 let currentQuestion;
+let currentScore = 0;
 
 function init(){
     ShuffledArray = shuffleArr(questions);
@@ -135,12 +140,17 @@ function endGame() {
     removeCurrentQuestions();
 
     endGameScreen.classList.remove('hide');
+    questionContainer.classList.add('hide');
+    myQuestions.classList.add('hide');
+
+    finalScore.textContent = currentScore;
 
     formSubmitter.addEventListener('click', submitScore);
 }
 
 function submitScore() {
-    console.log('submit');
+    currentUser = initialsForm.innerHTML;
+    storeScore();
 }
 
 
