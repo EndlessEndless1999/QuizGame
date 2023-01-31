@@ -1,18 +1,36 @@
 
 let currentUser;
 
-let highScores;
+let HighScores = [];
+
+localStorage.setItem('highScores', JSON.stringify(HighScores));
 
 function storeScore() {
-    var newUser = localStorage.setItem('user', currentUser);
-    var newScore = localStorage.setItem('score', currentScore); 
+
+    JSON.parse(localStorage.getItem('highScores'));
+
+    const user = new Object();
+
+    user.initials = currentUser;
+    user.score = currentScore;
+
+    HighScores.push(user);
+
+    console.log(HighScores);
 }
 
 
 function retrieveHighScores() {
-    var users = localStorage.getItem('highScores');
+    var users = JSON.parse(localStorage.getItem('highScores'));
 
-    highScores = users;
+    HighScores = users;
+
+    localStorage.setItem('highScores', JSON.stringify(HighScores));
+}
+
+
+function displayScores() {
+    return;
 }
 
 

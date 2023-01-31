@@ -53,7 +53,6 @@ function displayQuestion() {
 
     questionTitle.textContent = currentQuestion.Question;
 
-    console.log(currentQuestion);
 
     var answerIndex = 0;
     
@@ -67,7 +66,6 @@ function displayQuestion() {
         switchExpression = newLi.getAttribute('questionNum');
 
         buttonAttribute = newButton.getAttribute('buttonNum');
-        console.log(switchExpression);
 
         switch(switchExpression){
             case '0':
@@ -112,10 +110,8 @@ function onAnswerClick(){
     var button = event.target.getAttribute('buttonNum');
     
     if(button === currentQuestion.Correct){
-        console.log('Correct!');
         currentScore += 1;
     }else{
-        console.log('Incorrect!');
         time -= 10;
     }
     questionNum += 1;
@@ -149,7 +145,7 @@ function endGame() {
 }
 
 function submitScore() {
-    currentUser = initialsForm.innerHTML;
+    currentUser = initialsForm.value;
     storeScore();
 }
 
