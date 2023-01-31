@@ -17,9 +17,15 @@ function storeScore() {
     user.initials = currentUser;
     user.score = currentScore;
 
+    console.log(user);
+
     HighScores.push(user);
 
     console.log(HighScores);
+
+    localStorage.setItem('highScores', JSON.stringify(HighScores));
+
+    displayScores();
 }
 
 
