@@ -1,9 +1,12 @@
+var scoresDiv = document.querySelector('#highscores');
+
 
 let currentUser;
 
 let HighScores = [];
 
 localStorage.setItem('highScores', JSON.stringify(HighScores));
+
 
 function storeScore() {
 
@@ -30,8 +33,20 @@ function retrieveHighScores() {
 
 
 function displayScores() {
-    return;
+    console.log(HighScores);
+    for(let i = 0; i > HighScores.length; i++) {
+        let initialsLi = document.createElement('li');
+        initialsLi.textContent = HighScores[i].initials;
+
+        let scoreLi = document.createElement('li');
+        scoreLi.textContent = HighScores[i].score;
+
+        scoresDiv.append(initialsLi);
+        scoresDiv.append(scoreLi);
+
+
+    }
 }
 
-
+displayScores();
 
